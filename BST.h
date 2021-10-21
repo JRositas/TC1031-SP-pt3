@@ -18,9 +18,7 @@ class BST
 
 	private:
 		NodeT *root;
-		void preOrden(NodeT *r);
-		void inOrden(NodeT *r);
-		void postOrden(NodeT *r);
+		void inOrdenC(NodeT *r);
 		void destruye_Helper(NodeT *r);
 
 };
