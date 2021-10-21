@@ -75,27 +75,15 @@ void BST::add(int data){
 // 3 : PostOrden
 void BST::print(int tipo){
 	switch (tipo){
-		case 1:	preOrden(root);
-				break;
-		case 2: inOrden(root);
-				break;
-		case 3: postOrden(root);
+		case 1: inOrdenC(root);
 				break;
 	}
 	cout << endl;
 }
 
-// Complejidad: O(n)
-void BST::preOrden(NodeT *r){
-	if (r != nullptr){
-		cout << r->getData() << " ";
-		preOrden(r->geRight());
-		preOrden(r->getLeft());
-	}
-}
 
 // Complejidad: O(n)
-void BST::inOrden(NodeT *r){
+void BST::inOrdenC(NodeT *r){
 	if (r != nullptr){
 		inOrden(r->getRight());
 		cout << r->getData() << " ";
@@ -103,12 +91,4 @@ void BST::inOrden(NodeT *r){
 	}
 }
 
-// Complejidad: O(n)
-void BST::postOrden(NodeT *r){
-	if (r != nullptr){
-		postOrden(r->getRight());
-		postOrden(r->getLeft());
-		cout << r->getData() << " ";
-	}
-}
 
