@@ -1,5 +1,8 @@
 /*
-El presente programa tiene el propósito que con las diversas funciones nos van a regresar un entero con el maxima anchura BST de enteros, así como regresar el ancestro más cercano de dos datos, de la misma manera que se crea un copy constructor de la clase BST que esta basada en un BST que se llega como entrada, y por ultimo se haría la comparación de dos BST, sobrecargando el operador "==".
+El presente programa tiene el propósito que con las diversas funciones nos van a regresar un entero con el maxima anchura BST de enteros, 
+así como regresar el ancestro más cercano de dos datos, 
+de la misma manera que se crea un copy constructor de la clase BST que esta basada en un BST que se llega como entrada, 
+y por ultimo se haría la comparación de dos BST, sobrecargando el operador "==".
 */
 
 
