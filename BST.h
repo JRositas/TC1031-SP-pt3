@@ -89,25 +89,25 @@ void BST::print(int tipo){
 void BST::preOrden(NodeT *r){
 	if (r != nullptr){
 		cout << r->getData() << " ";
+		preOrden(r->geRight());
 		preOrden(r->getLeft());
-		preOrden(r->getRight());
 	}
 }
 
 // Complejidad: O(n)
 void BST::inOrden(NodeT *r){
 	if (r != nullptr){
-		inOrden(r->getLeft());
-		cout << r->getData() << " ";
 		inOrden(r->getRight());
+		cout << r->getData() << " ";
+		inOrden(r->getLeft());
 	}
 }
 
 // Complejidad: O(n)
 void BST::postOrden(NodeT *r){
 	if (r != nullptr){
-		postOrden(r->getLeft());
 		postOrden(r->getRight());
+		postOrden(r->getLeft());
 		cout << r->getData() << " ";
 	}
 }
