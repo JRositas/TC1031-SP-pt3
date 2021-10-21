@@ -13,7 +13,7 @@ class BST
 	public:
 		BST();
 		~BST();
-		void add(int data);
+		void add(dataCS data);
 		void print(int tipo);	
 
 	private:
@@ -41,7 +41,7 @@ void BST::destruye_Helper(NodeT *r){
 
 
 // Complejidad: O(height)
-void BST::add(int data){
+void BST::add(dataCS data);{
 	if (root == nullptr){
 		root = new NodeT(data);
 	}
@@ -68,9 +68,7 @@ void BST::add(int data){
 
 
 // Tipo:
-// 1 : PreOrden
-// 2 : InOrden
-// 3 : PostOrden
+// 1 : InOrdenC
 void BST::print(int tipo){
 	switch (tipo){
 		case 1: inOrdenC(root);
@@ -83,9 +81,9 @@ void BST::print(int tipo){
 // Complejidad: O(n)
 void BST::inOrdenC(NodeT *r){
 	if (r != nullptr){
-		inOrden(r->getRight());
+		inOrdenC(r->getRight());
 		cout << r->getData() << " ";
-		inOrden(r->getLeft());
+		inOrdenC(r->getLeft());
 	}
 }
 
