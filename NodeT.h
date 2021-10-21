@@ -1,28 +1,35 @@
+#include <iostream>
+using namespace std;
+
 struct dataCS {
 	int cant;
 	string nombre;
 	dataCS(){
 		cant = 0;
-		nombre = "AAA"	
+		nombre = "AAA";
 	}
 	dataCS(int cant, string nombre){
 		this->cant = cant;
 		this->nombre = nombre;
 	}
+	void print(){
+		cout << nombre << ": " << cant << endl;
+	}
 	bool operator==(const dataCS &otra){
-		return this->cant == otra.cant && this->nombre == otra.nombre;
+		return (this->cant == otra.cant && this->nombre == otra.nombre);
 	}
 	bool operator>(const dataCS &otra){
 		if(this->cant == otra.cant){
-			return this->nombre.compare(otra.nombre) > 0;
+			return (this->nombre.compare(otra.nombre) < 0);
 		}
-		return this->cant > otra.cant;
+		return (this->cant > otra.cant);
 	}
 	friend ostream& operator<<(ostream& os, const dataCS &d);
 };
 
 ostream& operator<<(ostream& os, const dataCS &d){
 	os << d.cant << " " << d.nombre << endl;
+	return os;
 }
 
 class NodeT{
