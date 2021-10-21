@@ -44,7 +44,7 @@ void BST::destruye_Helper(NodeT *r){
 
 
 // Complejidad: O(height)
-void BST::add(dataCS data);{
+void BST::add(dataCS data){
 	if (root == nullptr){
 		root = new NodeT(data);
 	}
