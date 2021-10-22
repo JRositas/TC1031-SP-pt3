@@ -20,24 +20,33 @@ BST ContEntradas(ifstream &txt){
             pais = ubi.substr(0,3);
         }
     }
+    if(pais != ""){
+        Arb.add(dataCS(cont, pais));
+    }
     return Arb;
 }
 
-main(){
+int main(){
+    string archivoRojo, archivoMediterraneo;
     BST ArbMRojo, ArbMMed;
     ifstream txtRojo, txtMed;
 
-    txtRojo.open("Rojo.txt"); // FALLA AL IMPRIMIR EL LA RAIZ DEL ARBOL D9A 30
+    cin >> archivoRojo;
+
+    txtRojo.open(archivoRojo); // FALLA AL IMPRIMIR EL LA RAIZ DEL ARBOL D9A 30
     ArbMRojo = ContEntradas(txtRojo);
     cout << "Entradas del Mar Rojo:" << endl << endl;
     ArbMRojo.print();
     cout << "-----------------------------------------------" << endl << endl;
     txtRojo.close();
 
-    txtMed.open("Mediterraneo.txt");
+    cin >> archivoMediterraneo;
+
+    txtMed.open(archivoMediterraneo);
     ArbMMed = ContEntradas(txtMed);
     cout << "Entradas del Mar Mediterraneo:" << endl << endl;
     ArbMMed.print();
     cout << "-----------------------------------------------" << endl << endl;
     txtMed.close();
+
 }
