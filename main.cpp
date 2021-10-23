@@ -4,8 +4,9 @@
 using namespace std;
 
 BST ContEntradas(ifstream &txt){
-    BST Arb;
+    BST arb;
     string fecha, hora, ubi, pais = "";
+    dataCS *aux;
     char puntoEntrada;
     int cont = 1;
     txt >> fecha >> hora >> puntoEntrada >> ubi;
@@ -14,39 +15,40 @@ BST ContEntradas(ifstream &txt){
         if(ubi.substr(0,3) == pais){
             cont++;
         } else{
-            //dataCS(cont, pais).print();
-            Arb.add(dataCS(cont, pais));
-            cont=1;
+            aux = new dataCS(cont, pais);
+            arb.add(*aux);
+            cont = 1;
             pais = ubi.substr(0,3);
         }
     }
     if(pais != ""){
-        Arb.add(dataCS(cont, pais));
+        arb.add(*aux);
     }
-    return Arb;
+    return arb;
 }
 
 int main(){
     string archivoRojo, archivoMediterraneo;
-    BST ArbMRojo, ArbMMed;
+    BST arbMRojo, arbMMed, arb;
     ifstream txtRojo, txtMed;
 
+    cout << "Ingresa el nombre del archivo del Mar Rojo: ";
     cin >> archivoRojo;
-
-    txtRojo.open(archivoRojo); // FALLA AL IMPRIMIR EL LA RAIZ DEL ARBOL D9A 30
-    ArbMRojo = ContEntradas(txtRojo);
+    
+    txtRojo.open(archivoRojo);
+    arbMRojo = ContEntradas(txtRojo);
     cout << "Entradas del Mar Rojo:" << endl << endl;
-    ArbMRojo.print();
+    arbMRojo.print();
     cout << "-----------------------------------------------" << endl << endl;
     txtRojo.close();
 
+    cout << "Ingresa el nombre del archivo del Mar Mediterraneo: ";
     cin >> archivoMediterraneo;
 
     txtMed.open(archivoMediterraneo);
-    ArbMMed = ContEntradas(txtMed);
+    arbMMed = ContEntradas(txtMed);
     cout << "Entradas del Mar Mediterraneo:" << endl << endl;
-    ArbMMed.print();
+    arbMMed.print();
     cout << "-----------------------------------------------" << endl << endl;
     txtMed.close();
-
 }

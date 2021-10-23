@@ -57,8 +57,7 @@ void BST::print(){
 void BST::inOrdenC(NodeT *r){
 	if (r != nullptr){
 		inOrdenC(r->getRight());
-		dataCS dato = r->getData();
-		dato.print();
+		cout << r->getData();
 		inOrdenC(r->getLeft());
 	}
 }

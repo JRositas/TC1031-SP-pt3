@@ -12,9 +12,6 @@ struct dataCS {
 		this->cant = cant;
 		this->nombre = nombre;
 	}
-	void print(){
-		cout << nombre << ": " << cant << endl;
-	}
 	bool operator==(const dataCS &otra){
 		return (this->cant == otra.cant && this->nombre == otra.nombre);
 	}
@@ -28,7 +25,7 @@ struct dataCS {
 };
 
 ostream& operator<<(ostream& os, const dataCS &d){
-	os << d.cant << " " << d.nombre << endl;
+	os << d.nombre << " " << d.cant << endl;
 	return os;
 }
 
