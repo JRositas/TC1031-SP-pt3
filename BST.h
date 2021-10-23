@@ -4,8 +4,10 @@ class BST{
 	public:
 		BST();
 		~BST();
+
 		void add(dataCS data);
 		void print();
+
 	private:
 		NodeT *root;
 		void inOrdenC(NodeT *r);

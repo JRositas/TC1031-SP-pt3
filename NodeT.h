@@ -1,4 +1,3 @@
-#include <iostream>
 using namespace std;
 
 struct dataCS {
@@ -13,20 +12,23 @@ struct dataCS {
 		this->nombre = nombre;
 	}
 	bool operator==(const dataCS &otra){
-		return (this->cant == otra.cant && this->nombre == otra.nombre);
+		return this->cant == otra.cant && this->nombre == otra.nombre;
 	}
 	bool operator>(const dataCS &otra){
 		if(this->cant == otra.cant){
-			return (this->nombre.compare(otra.nombre) < 0);
+			return this->nombre.compare(otra.nombre) < 0;
 		}
-		return (this->cant > otra.cant);
+		return this->cant > otra.cant;
+	}
+	void operator=(const dataCS &otra){
+		this->cant = otra.cant;
+		this->nombre = otra.nombre;
 	}
 	friend ostream& operator<<(ostream& os, const dataCS &d);
 };
 
 ostream& operator<<(ostream& os, const dataCS &d){
 	os << d.nombre << " " << d.cant << endl;
-	return os;
 }
 
 class NodeT{
@@ -58,15 +60,15 @@ NodeT::NodeT(dataCS data, NodeT *left, NodeT *right){
 }
 
 dataCS NodeT::getData(){
-	return data;
+	return this->data;
 }
 
 NodeT* NodeT::getLeft(){
-	return left;
+	return this->left;
 }
 
 NodeT* NodeT::getRight(){
-	return right;
+	return this->right;
 }
 
 void NodeT::setData(dataCS data){
