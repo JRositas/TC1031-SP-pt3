@@ -11,22 +11,23 @@ void ContEntradas(ifstream &txt){
     char puntoEntrada;
     int cont = 1;
     txt >> fecha >> hora >> puntoEntrada >> ubi;
-    pais = ubi.substr(0,3);
-    while (txt >> fecha >> hora >> puntoEntrada >> ubi){
-        if(ubi.substr(0,3) == pais){
-            cont++;
-        } else{
-            aux = new dataCS(cont, pais);
-            arb.add(*aux);
-            cont = 1;
-            pais = ubi.substr(0,3);
+    if(ubi != ""){
+        pais = ubi.substr(0,3);
+        while (txt >> fecha >> hora >> puntoEntrada >> ubi){
+            if(ubi.substr(0,3) == pais){
+                cont++;
+            } else{
+                aux = new dataCS(cont, pais);
+                arb.add(*aux);
+                cont = 1;
+                pais = ubi.substr(0,3);
+            }
         }
-    }
-    if(pais != ""){
+        aux = new dataCS(cont, pais);
         arb.add(*aux);
+        arb.print();
+        cout << "-----------------------------------------------" << endl << endl;
     }
-    arb.print();
-    cout << "-----------------------------------------------" << endl << endl;
 }
 
 int main(){
