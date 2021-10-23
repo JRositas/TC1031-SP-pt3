@@ -3,8 +3,8 @@
 #include "BST.h"
 using namespace std;
 
-// Complejidad: O(n) n siendo el numero de renglones del archivo
-BST ContEntradas(ifstream &txt){
+// Complejidad: O(n)
+void ContEntradas(ifstream &txt){
     BST arb;
     string fecha, hora, ubi, pais = "";
     dataCS *aux;
@@ -25,31 +25,27 @@ BST ContEntradas(ifstream &txt){
     if(pais != ""){
         arb.add(*aux);
     }
-    return arb;
+    arb.print();
+    cout << "-----------------------------------------------" << endl << endl;
 }
 
 int main(){
     string archivoRojo, archivoMediterraneo;
-    BST arbMRojo, arbMMed;
     ifstream txtRojo, txtMed;
 
     cout << "Ingresa el nombre del archivo del Mar Rojo: ";
     cin >> archivoRojo;
-    
     txtRojo.open(archivoRojo);
-    arbMRojo = ContEntradas(txtRojo);
     cout << "Entradas del Mar Rojo:" << endl << endl;
-    arbMRojo.print();
-    cout << "-----------------------------------------------" << endl << endl;
+    ContEntradas(txtRojo);
     txtRojo.close();
 
     cout << "Ingresa el nombre del archivo del Mar Mediterraneo: ";
     cin >> archivoMediterraneo;
-
     txtMed.open(archivoMediterraneo);
-    arbMMed = ContEntradas(txtMed);
     cout << "Entradas del Mar Mediterraneo:" << endl << endl;
-    arbMMed.print();
-    cout << "-----------------------------------------------" << endl << endl;
+    ContEntradas(txtMed);
     txtMed.close();
+    
+    return 0;
 }
