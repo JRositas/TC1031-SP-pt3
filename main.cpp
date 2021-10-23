@@ -3,6 +3,7 @@
 #include "BST.h"
 using namespace std;
 
+// Complejidad: O(n) n siendo el numero de renglones del archivo
 BST ContEntradas(ifstream &txt){
     BST arb;
     string fecha, hora, ubi, pais = "";
