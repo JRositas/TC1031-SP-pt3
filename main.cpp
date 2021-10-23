@@ -29,7 +29,7 @@ BST ContEntradas(ifstream &txt){
 
 int main(){
     string archivoRojo, archivoMediterraneo;
-    BST arbMRojo, arbMMed, arb;
+    BST arbMRojo, arbMMed;
     ifstream txtRojo, txtMed;
 
     cout << "Ingresa el nombre del archivo del Mar Rojo: ";
