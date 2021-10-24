@@ -1,6 +1,6 @@
 using namespace std;
 
-struct dataCS {
+struct dataCS { // Struct que guarda el nombre y la cantidad de los nodos
 	int cant;
 	string nombre;
 	dataCS(){
@@ -11,23 +11,23 @@ struct dataCS {
 		this->cant = cant;
 		this->nombre = nombre;
 	}
-	bool operator==(const dataCS &otra){
+	bool operator==(const dataCS &otra){ // Comparar para igualdad
 		return this->cant == otra.cant && this->nombre == otra.nombre;
 	}
-	bool operator>(const dataCS &otra){
+	bool operator>(const dataCS &otra){ // Operador mayor que, primero compara cantidad, si es igual, compara nombre
 		if(this->cant == otra.cant){
 			return this->nombre.compare(otra.nombre) < 0;
 		}
 		return this->cant > otra.cant;
 	}
-	void operator=(const dataCS &otra){
+	void operator=(const dataCS &otra){ // Operador de asignación
 		this->cant = otra.cant;
 		this->nombre = otra.nombre;
 	}
 	friend ostream& operator<<(ostream& os, const dataCS &d);
 };
 
-ostream& operator<<(ostream& os, const dataCS &d){
+ostream& operator<<(ostream& os, const dataCS &d){ // Impresion del dato
 	os << d.nombre << " " << d.cant << endl;
 }
 

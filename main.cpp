@@ -28,22 +28,22 @@ void ContEntradas(ifstream &txt){
     dataCS *aux;
     char puntoEntrada;
     int cont = 1;
-    txt >> fecha >> hora >> puntoEntrada >> ubi;
-    if(ubi != ""){
-        pais = ubi.substr(0,3);
-        while (txt >> fecha >> hora >> puntoEntrada >> ubi){
-            if(ubi.substr(0,3) == pais){
+    txt >> fecha >> hora >> puntoEntrada >> ubi; // Lectura de la primera linea
+    if(ubi != ""){ // En caso de que el archivo no este vacío
+        pais = ubi.substr(0,3); // Se toma el primer país
+        while (txt >> fecha >> hora >> puntoEntrada >> ubi){ // Mientras haya información en el archivo
+            if(ubi.substr(0,3) == pais){ // Si el pais actual es el mismo que el de la linea aumenta el contador en 1
                 cont++;
-            } else{
+            } else{ // Cuando el pais ya no coincida añade un nodo al arbol con la cantidad actual, reinicia el contador y toma guarda el siguiente pais
                 aux = new dataCS(cont, pais);
                 arb.add(*aux);
                 cont = 1;
                 pais = ubi.substr(0,3);
             }
         }
-        aux = new dataCS(cont, pais);
+        aux = new dataCS(cont, pais); // Añadir el ultimo nodo al arbol
         arb.add(*aux);
-        arb.print();
+        arb.print(); // Imprimir arbol
         cout << "-----------------------------------------------" << endl << endl;
     }
 }
@@ -53,17 +53,21 @@ int main(){
     ifstream txtRojo, txtMed;
 
     cout << "Ingresa el nombre del archivo del Mar Rojo: ";
-    cin >> archivoRojo;
+    cin >> archivoRojo; 
+
     txtRojo.open(archivoRojo);
     cout << "Entradas del Mar Rojo:" << endl << endl;
-    ContEntradas(txtRojo);
+    ContEntradas(txtRojo); // Llamada a la funcion que imprime el arbol
+
     txtRojo.close();
 
     cout << "Ingresa el nombre del archivo del Mar Mediterraneo: ";
     cin >> archivoMediterraneo;
+
     txtMed.open(archivoMediterraneo);
     cout << "Entradas del Mar Mediterraneo:" << endl << endl;
-    ContEntradas(txtMed);
+    ContEntradas(txtMed); // Llamada a la funcion que imprime el arbol
+
     txtMed.close();
     
     return 0;

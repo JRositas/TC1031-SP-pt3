@@ -49,12 +49,14 @@ void BST::add(dataCS data){
 	}
 }
 
+
 // Complejidad: O(n)
 void BST::print(){
 	inOrdenC(root);
 	cout << endl;
 }
 
+// Imprime los nodos desde el valor mas grande al menor
 // Complejidad: O(n)
 void BST::inOrdenC(NodeT *r){
 	if (r != nullptr){
