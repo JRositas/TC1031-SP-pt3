@@ -1,8 +1,26 @@
+
+/*
+El presente programa tiene como propósito solicitar los archivos que se habían generado con anterioridad,
+con respecto a los mares Rojo y Mediterraneo, y de tal manera se contabilice las entradas que han tenido cada buque 
+(los primeros 3 caracteres de la serie UBI), por lo que se va a almacenar como data unico UBI + Cantidad de Entradas en 2 arboles binarios,
+efectivamente un arbol por mar. Por último se despliega en pantalla la información de cada arbol (de cada mar) de forma descendiente.
+*/
+
+// Integrantes (Equipo 12) :
+// Daniel Evaristo Escalera Bonilla - A00831289
+// José Arnoldo Rositas Salinas - A00829760
+// Ángela Felicia Guajardo Olveda - A00829821
+
+// SP TC1031
+// 23 Oct 2021
+
+
 #include <iostream>
 #include <fstream>
 #include "BST.h"
 using namespace std;
 
+// Función que nos permite contabilizar las Entradas
 // Complejidad: O(n)
 void ContEntradas(ifstream &txt){
     BST arb;
